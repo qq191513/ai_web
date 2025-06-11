@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景 -->
+    <rect width="600" height="400" fill="#f8fafc"/>
+    
+    <!-- AI 大脑图标 -->
+    <g transform="translate(250, 150)">
+        <!-- 外圈 -->
+        <path d="M100,0 C44.8,0 0,44.8 0,100 C0,155.2 44.8,200 100,200 C155.2,200 200,155.2 200,100 C200,44.8 155.2,0 100,0 Z" fill="#e2e8f0"/>
+        
+        <!-- 内圈 -->
+        <path d="M100,20 C56.8,20 20,56.8 20,100 C20,143.2 56.8,180 100,180 C143.2,180 180,143.2 180,100 C180,56.8 143.2,20 100,20 Z" fill="#ffffff"/>
+        
+        <!-- 连接线 -->
+        <path d="M60,60 L140,60 M60,100 L140,100 M60,140 L140,140" stroke="#3b82f6" stroke-width="4" stroke-linecap="round"/>
+        
+        <!-- 节点 -->
+        <circle cx="60" cy="60" r="8" fill="#3b82f6"/>
+        <circle cx="140" cy="60" r="8" fill="#3b82f6"/>
+        <circle cx="60" cy="100" r="8" fill="#60a5fa"/>
+        <circle cx="140" cy="100" r="8" fill="#60a5fa"/>
+        <circle cx="60" cy="140" r="8" fill="#93c5fd"/>
+        <circle cx="140" cy="140" r="8" fill="#93c5fd"/>
+    </g>
+    
+    <!-- 装饰元素 -->
+    <circle cx="100" cy="100" r="20" fill="#3b82f6" opacity="0.2"/>
+    <circle cx="500" cy="300" r="30" fill="#60a5fa" opacity="0.2"/>
+    <circle cx="400" cy="100" r="25" fill="#93c5fd" opacity="0.2"/>
+</svg> 

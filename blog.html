@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-bold text-gray-900">Portfolio</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-blue-600">Projects</a>
+                    <a href="blog.html" class="text-blue-600 font-medium">Blog</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600">Contact</a>
+                </div>
+                <button class="md:hidden text-gray-700" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Title Section -->
+    <section class="pt-32 pb-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#111827] mb-4">Blog</h1>
+            <p class="text-[#4B5563] text-lg max-w-2xl mx-auto">
+                Insights, tutorials, and thoughts on web development, design, and technology.
+            </p>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-4 items-start md:items-center">
+                <!-- Search Box -->
+                <div class="relative flex-grow">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fas fa-search text-gray-400"></i>
+                    </div>
+                    <input type="text" 
+                           class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                           placeholder="Search articles...">
+                    <button class="absolute inset-y-0 right-0 pr-3 hidden" id="clear-search">
+                        <i class="fas fa-times text-gray-400 hover:text-gray-600"></i>
+                    </button>
+                </div>
+
+                <!-- Tags Filter -->
+                <div class="flex flex-wrap gap-2 md:ml-4 overflow-x-auto md:overflow-visible pb-2 md:pb-0">
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium">
+                        All
+                    </button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200">
+                        Frontend
+                    </button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200">
+                        Backend
+                    </button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200">
+                        Design
+                    </button>
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200">
+                        DevOps
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Section -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="space-y-8">
+                <!-- Blog Post Card -->
+                <article class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+                    <div class="flex flex-col md:flex-row">
+                        <!-- Post Image -->
+                        <div class="md:w-1/3">
+                            <div class="aspect-w-16 aspect-h-9">
+                                <img src="images/placeholder.jpg" 
+                                     data-src="images/blog/ai-trends.jpg"
+                                     alt="AI Technology Trends"
+                                     loading="lazy"
+                                     class="w-full h-48 object-cover rounded-t-lg transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="p-6 md:w-2/3">
+                            <div class="flex items-center gap-4 mb-3">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+                                    Frontend Development
+                                </span>
+                                <span class="text-gray-500 text-sm">2024-02-15</span>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors">
+                                <a href="blog-detail.html" class="hover:text-blue-600 transition-colors">
+                                    Building Modern Web Applications with React
+                                </a>
+                            </h2>
+                            <p class="text-gray-600 mb-4 line-clamp-2">
+                                Learn how to build scalable and maintainable web applications using React, 
+                                including best practices for state management, component design, and performance optimization.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-4 text-gray-500 text-sm">
+                                    <span class="flex items-center">
+                                        <i class="far fa-eye mr-1"></i>
+                                        1.2k views
+                                    </span>
+                                    <span class="flex items-center">
+                                        <i class="far fa-comment mr-1"></i>
+                                        8 comments
+                                    </span>
+                                </div>
+                                <a href="blog-detail.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                                    Read More
+                                    <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Repeat Blog Post Card Structure -->
+                <!-- Add more blog post cards here -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-12 flex justify-center">
+                <nav class="flex items-center gap-2">
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white">
+                        1
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+                        2
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+                        3
+                    </button>
+                    <span class="px-2 text-gray-600">...</span>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+                        10
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-50 hidden">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex justify-end mb-8">
+                <button id="close-menu" class="text-gray-700">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-4">
+                <a href="index.html" class="text-xl text-gray-700 hover:text-blue-600">Home</a>
+                <a href="projects.html" class="text-xl text-gray-700 hover:text-blue-600">Projects</a>
+                <a href="blog.html" class="text-xl text-blue-600 font-medium">Blog</a>
+                <a href="about.html" class="text-xl text-gray-700 hover:text-blue-600">About</a>
+                <a href="contact.html" class="text-xl text-gray-700 hover:text-blue-600">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('input[type="text"]');
+        const clearSearchButton = document.getElementById('clear-search');
+
+        searchInput.addEventListener('input', (e) => {
+            if (e.target.value) {
+                clearSearchButton.classList.remove('hidden');
+            } else {
+                clearSearchButton.classList.add('hidden');
+            }
+        });
+
+        clearSearchButton.addEventListener('click', () => {
+            searchInput.value = '';
+            clearSearchButton.classList.add('hidden');
+        });
+
+        // Tag filter functionality
+        const tagButtons = document.querySelectorAll('.tags-filter button');
+        tagButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tagButtons.forEach(btn => {
+                    btn.classList.remove('bg-blue-600', 'text-white');
+                    btn.classList.add('bg-gray-100', 'text-gray-700');
+                });
+                button.classList.remove('bg-gray-100', 'text-gray-700');
+                button.classList.add('bg-blue-600', 'text-white');
+            });
+        });
+
+        // Lazy loading images
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach(img => imageObserver.observe(img));
+        });
+    </script>
+</body>
+</html> 

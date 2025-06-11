@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - My Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        .project-image {
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        .github-icon {
+            transition: transform 0.3s ease;
+            will-change: transform;
+        }
+        .github-icon:hover {
+            transform: rotate(15deg);
+        }
+        .fade-enter {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .fade-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 300ms, transform 300ms;
+        }
+        .fade-exit {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-exit-active {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 300ms, transform 300ms;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-menu {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .desktop-menu {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .mobile-menu-items {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            }
+            .mobile-menu-items.active {
+                display: block;
+            }
+            .filter-tags {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                padding-bottom: 0.5rem;
+            }
+            .filter-tags::-webkit-scrollbar {
+                display: none;
+            }
+            .filter-tags .flex {
+                flex-wrap: nowrap;
+                padding-bottom: 0.5rem;
+            }
+            .project-card {
+                margin: 0 auto;
+                max-width: 100%;
+            }
+            .project-image {
+                height: 200px;
+            }
+            h1 {
+                font-size: 1.75rem;
+            }
+            p {
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Focus and accessibility styles */
+        .focus-visible:focus-visible {
+            outline: 2px solid #3B82F6;
+            outline-offset: 2px;
+        }
+        .focus-visible:focus-visible:not(:focus-visible) {
+            outline: none;
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+        .loading::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: loading 1.5s infinite;
+        }
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Skip to main content link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-blue-600">
+        Skip to main content
+    </a>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-sm relative" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="text-xl font-bold text-gray-900" aria-label="Portfolio Home">Portfolio</a>
+                    </div>
+                    <!-- Desktop Menu -->
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8 desktop-menu" role="menubar">
+                        <a href="index.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium focus-visible" role="menuitem">Home</a>
+                        <a href="projects.html" class="text-blue-600 border-b-2 border-blue-600 px-3 py-2 text-sm font-medium focus-visible" role="menuitem" aria-current="page">Projects</a>
+                        <a href="about.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium focus-visible" role="menuitem">About</a>
+                        <a href="contact.html" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium focus-visible" role="menuitem">Contact</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center sm:hidden mobile-menu">
+                    <button 
+                        onclick="toggleMobileMenu()" 
+                        class="text-gray-500 hover:text-gray-900 focus:outline-none focus-visible"
+                        aria-expanded="false"
+                        aria-controls="mobile-menu-items"
+                        aria-label="Toggle menu">
+                        <i class="fas fa-bars text-xl" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Items -->
+        <div id="mobile-menu-items" class="mobile-menu-items" role="menu" aria-label="Mobile menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 focus-visible" role="menuitem">Home</a>
+                <a href="projects.html" class="block px-3 py-2 text-base font-medium text-blue-600 focus-visible" role="menuitem" aria-current="page">Projects</a>
+                <a href="about.html" class="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 focus-visible" role="menuitem">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 focus-visible" role="menuitem">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Main Title Section -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">My Projects</h1>
+            <p class="text-base md:text-lg text-gray-600">Explore my latest work and personal projects</p>
+        </div>
+
+        <!-- Filter Tags Section -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <div class="filter-tags" role="tablist" aria-label="Project filters">
+                <div class="flex gap-3 justify-start md:justify-center">
+                    <button 
+                        onclick="filterProjects('all')" 
+                        class="px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium whitespace-nowrap focus-visible"
+                        role="tab"
+                        aria-selected="true"
+                        aria-controls="all-projects">
+                        All
+                    </button>
+                    <button 
+                        onclick="filterProjects('web')" 
+                        class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 whitespace-nowrap focus-visible"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="web-projects">
+                        Web Development
+                    </button>
+                    <button 
+                        onclick="filterProjects('mobile')" 
+                        class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 whitespace-nowrap focus-visible"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="mobile-projects">
+                        Mobile Apps
+                    </button>
+                    <button 
+                        onclick="filterProjects('design')" 
+                        class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 whitespace-nowrap focus-visible"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="design-projects">
+                        UI/UX Design
+                    </button>
+                    <button 
+                        onclick="filterProjects('other')" 
+                        class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 whitespace-nowrap focus-visible"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="other-projects">
+                        Other
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Grid Section -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project Card 1 -->
+                <article class="project-card bg-white rounded-lg shadow-sm hover:shadow-md" data-category="web">
+                    <div class="overflow-hidden rounded-t-lg">
+                        <img src="images/placeholder.jpg" 
+                             data-src="images/projects/ecommerce.jpg"
+                             alt="E-commerce Platform Project"
+                             loading="lazy"
+                             class="w-full h-48 object-cover rounded-t-lg transition-opacity duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-lg font-semibold text-gray-900 mb-2">E-commerce Platform</h2>
+                        <p class="text-sm text-gray-600 mb-4">A full-featured e-commerce platform with real-time inventory management, secure payment processing, and customer analytics dashboard.</p>
+                        <div class="flex flex-wrap gap-2 mb-4" role="list" aria-label="Technologies used">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded" role="listitem">React</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded" role="listitem">Node.js</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded" role="listitem">MongoDB</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="project-detail.html" class="text-blue-600 hover:text-blue-800 font-medium text-sm focus-visible">View details →</a>
+                            <a href="#" class="text-gray-600 hover:text-gray-900 focus-visible" aria-label="View project on GitHub">
+                                <i class="fab fa-github text-xl github-icon" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 2 -->
+                <article class="project-card bg-white rounded-lg shadow-sm hover:shadow-md" data-category="mobile">
+                    <div class="overflow-hidden rounded-t-lg">
+                        <img src="images/placeholder.jpg" 
+                             data-src="images/projects/social-media.jpg"
+                             alt="Social Media Dashboard Project"
+                             loading="lazy"
+                             class="w-full h-48 object-cover rounded-t-lg transition-opacity duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-lg font-semibold text-gray-900 mb-2">Social Media Dashboard</h2>
+                        <p class="text-sm text-gray-600 mb-4">A social media dashboard that provides real-time updates and analytics for multiple platforms.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Vue.js</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Firebase</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Tailwind CSS</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="project-detail.html" class="text-blue-600 hover:text-blue-800 font-medium text-sm">View details →</a>
+                            <a href="#" class="text-gray-600 hover:text-gray-900">
+                                <i class="fab fa-github text-xl github-icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 3 -->
+                <article class="project-card bg-white rounded-lg shadow-sm hover:shadow-md" data-category="design">
+                    <div class="overflow-hidden rounded-t-lg">
+                        <img src="images/placeholder.jpg" 
+                             data-src="images/projects/portfolio.jpg"
+                             alt="Portfolio Website Project"
+                             loading="lazy"
+                             class="w-full h-48 object-cover rounded-t-lg transition-opacity duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-lg font-semibold text-gray-900 mb-2">Portfolio Website</h2>
+                        <p class="text-sm text-gray-600 mb-4">A responsive portfolio website designed to showcase my projects and skills.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">HTML</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">CSS</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">JavaScript</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="project-detail.html" class="text-blue-600 hover:text-blue-800 font-medium text-sm">View details →</a>
+                            <a href="#" class="text-gray-600 hover:text-gray-900">
+                                <i class="fab fa-github text-xl github-icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="flex justify-center mt-16 mb-16">
+                <button 
+                    class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-300 focus-visible"
+                    aria-label="Load more projects">
+                    Load More Projects
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('[role="tab"]');
+            
+            // Update active button
+            buttons.forEach(button => {
+                const isSelected = button.textContent.toLowerCase().includes(category) || 
+                                 (category === 'all' && button.textContent === 'All');
+                button.setAttribute('aria-selected', isSelected);
+                button.classList.toggle('bg-blue-600', isSelected);
+                button.classList.toggle('text-white', isSelected);
+                button.classList.toggle('bg-gray-200', !isSelected);
+                button.classList.toggle('text-gray-700', !isSelected);
+            });
+
+            // Filter cards with animation
+            cards.forEach(card => {
+                const shouldShow = category === 'all' || card.dataset.category === category;
+                card.style.display = shouldShow ? 'block' : 'none';
+                card.style.animation = shouldShow ? 'fadeIn 0.5s ease-in-out' : 'fadeOut 0.5s ease-in-out';
+            });
+        }
+
+        // Mobile menu toggle with accessibility
+        function toggleMobileMenu() {
+            const menuButton = document.querySelector('.mobile-menu button');
+            const menuItems = document.querySelector('.mobile-menu-items');
+            const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+            
+            menuButton.setAttribute('aria-expanded', !isExpanded);
+            menuItems.classList.toggle('active');
+        }
+
+        // Intersection Observer for lazy loading
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('loading');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            imageObserver.observe(img);
+        });
+
+        // Existing event listeners
+        // ... existing event listeners ...
+    </script>
+</body>
+</html> 

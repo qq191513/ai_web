@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Modern Web Applications with React - Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-xl font-bold text-gray-900">Portfolio</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-blue-600">Projects</a>
+                    <a href="blog.html" class="text-blue-600 font-medium">Blog</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600">Contact</a>
+                </div>
+                <button class="md:hidden text-gray-700" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Back Link -->
+                <a href="blog.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors mb-8">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Back to Blog List
+                </a>
+
+                <!-- Article Header -->
+                <header class="mb-8">
+                    <div class="flex items-center text-gray-500 text-sm mb-4">
+                        <time datetime="2024-02-15">2024-02-15</time>
+                        <span class="mx-2">·</span>
+                        <span>Reading time: 8 min</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold text-[#111827] mb-6">
+                        Building Modern Web Applications with React
+                    </h1>
+                    <div class="flex items-center gap-6 text-gray-500">
+                        <span class="flex items-center">
+                            <i class="far fa-eye mr-2"></i>
+                            1.2k views
+                        </span>
+                        <span class="flex items-center">
+                            <i class="far fa-comment mr-2"></i>
+                            8 comments
+                        </span>
+                    </div>
+                </header>
+
+                <!-- Featured Image -->
+                <div class="mb-8">
+                    <img src="images/placeholder.jpg" 
+                         alt="Code editor screenshot" 
+                         class="w-full aspect-w-16 aspect-h-9 object-cover rounded-lg shadow-lg"
+                         loading="lazy">
+                </div>
+
+                <!-- Article Content -->
+                <article class="prose prose-lg max-w-none">
+                    <p class="text-[#111827] leading-relaxed mb-6">
+                        In this comprehensive guide, we'll explore the best practices for building modern web applications using React. 
+                        We'll cover everything from project setup to deployment, with a focus on performance, maintainability, and user experience.
+                    </p>
+
+                    <h2 class="text-2xl font-bold text-[#111827] mt-12 mb-6">1. Project Setup and Configuration</h2>
+                    <p class="text-[#111827] leading-relaxed mb-6">
+                        Let's start by setting up a new React project using Create React App and configuring essential tools.
+                    </p>
+
+                    <div class="relative group">
+                        <pre class="language-javascript rounded-lg bg-[#1E293B] p-4 overflow-x-auto">
+                            <code class="language-javascript">
+// Initialize a new React project
+npx create-react-app my-app
+cd my-app
+
+// Install essential dependencies
+npm install @reduxjs/toolkit react-router-dom axios
+
+// Start the development server
+npm start
+                            </code>
+                        </pre>
+                        <button class="absolute top-2 right-2 p-2 text-gray-400 hover:text-white transition-colors opacity-0 group-hover:opacity-100"
+                                onclick="copyCode(this)">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-[#111827] mt-12 mb-6">2. Component Architecture</h2>
+                    <p class="text-[#111827] leading-relaxed mb-6">
+                        A well-structured component hierarchy is crucial for maintainable React applications. 
+                        Here's an example of a reusable component:
+                    </p>
+
+                    <div class="relative group">
+                        <pre class="language-jsx rounded-lg bg-[#1E293B] p-4 overflow-x-auto">
+                            <code class="language-jsx">
+import React from 'react';
+
+const Button = ({ 
+    children, 
+    variant = 'primary',
+    onClick 
+}) => {
+    const baseStyles = 'px-4 py-2 rounded-lg font-medium transition-colors';
+    const variants = {
+        primary: 'bg-blue-600 text-white hover:bg-blue-700',
+        secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+    };
+
+    return (
+        <button 
+            className={`${baseStyles} ${variants[variant]}`}
+            onClick={onClick}
+        >
+            {children}
+        </button>
+    );
+};
+
+export default Button;
+                            </code>
+                        </pre>
+                        <button class="absolute top-2 right-2 p-2 text-gray-400 hover:text-white transition-colors opacity-0 group-hover:opacity-100"
+                                onclick="copyCode(this)">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-[#111827] mt-12 mb-6">3. State Management</h2>
+                    <p class="text-[#111827] leading-relaxed mb-6">
+                        For complex applications, we'll use Redux Toolkit for state management. 
+                        Here's a basic example of a Redux slice:
+                    </p>
+
+                    <div class="relative group">
+                        <pre class="language-javascript rounded-lg bg-[#1E293B] p-4 overflow-x-auto">
+                            <code class="language-javascript">
+import { createSlice } from '@reduxjs/toolkit';
+
+const counterSlice = createSlice({
+    name: 'counter',
+    initialState: {
+        value: 0
+    },
+    reducers: {
+        increment: state => {
+            state.value += 1;
+        },
+        decrement: state => {
+            state.value -= 1;
+        }
+    }
+});
+
+export const { increment, decrement } = counterSlice.actions;
+export default counterSlice.reducer;
+                            </code>
+                        </pre>
+                        <button class="absolute top-2 right-2 p-2 text-gray-400 hover:text-white transition-colors opacity-0 group-hover:opacity-100"
+                                onclick="copyCode(this)">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" 
+            class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-50 hidden">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex justify-end mb-8">
+                <button id="close-menu" class="text-gray-700">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-4">
+                <a href="index.html" class="text-xl text-gray-700 hover:text-blue-600">Home</a>
+                <a href="projects.html" class="text-xl text-gray-700 hover:text-blue-600">Projects</a>
+                <a href="blog.html" class="text-xl text-blue-600 font-medium">Blog</a>
+                <a href="about.html" class="text-xl text-gray-700 hover:text-blue-600">About</a>
+                <a href="contact.html" class="text-xl text-gray-700 hover:text-blue-600">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-jsx.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Code copy functionality
+        function copyCode(button) {
+            const pre = button.parentElement;
+            const code = pre.querySelector('code');
+            const text = code.textContent;
+
+            navigator.clipboard.writeText(text).then(() => {
+                const originalIcon = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    button.innerHTML = originalIcon;
+                }, 2000);
+            });
+        }
+
+        // Image click to zoom
+        document.querySelectorAll('article img').forEach(img => {
+            img.addEventListener('click', () => {
+                const modal = document.createElement('div');
+                modal.className = 'fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center';
+                modal.innerHTML = `
+                    <div class="relative max-w-4xl w-full mx-4">
+                        <img src="${img.src}" alt="${img.alt}" class="w-full h-auto rounded-lg">
+                        <button class="absolute top-4 right-4 text-white hover:text-gray-300">
+                            <i class="fas fa-times text-2xl"></i>
+                        </button>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+                modal.querySelector('button').addEventListener('click', () => {
+                    modal.remove();
+                });
+            });
+        });
+
+        // Lazy loading images
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach(img => imageObserver.observe(img));
+        });
+    </script>
+</body>
+</html> 

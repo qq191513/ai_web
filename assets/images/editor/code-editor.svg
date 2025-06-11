@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景 -->
+    <rect width="600" height="400" fill="#1e293b"/>
+    
+    <!-- 编辑器标题栏 -->
+    <rect width="600" height="40" fill="#0f172a"/>
+    <circle cx="20" cy="20" r="6" fill="#ef4444"/>
+    <circle cx="40" cy="20" r="6" fill="#f59e0b"/>
+    <circle cx="60" cy="20" r="6" fill="#10b981"/>
+    
+    <!-- 代码内容 -->
+    <g transform="translate(40, 80)" font-family="monospace" font-size="14" fill="#e2e8f0">
+        <!-- 类定义 -->
+        <text x="0" y="0" fill="#60a5fa">class</text>
+        <text x="50" y="0" fill="#fbbf24">Developer</text>
+        <text x="150" y="0" fill="#e2e8f0">{</text>
+        
+        <!-- 构造函数 -->
+        <text x="20" y="30" fill="#60a5fa">constructor</text>
+        <text x="120" y="30" fill="#e2e8f0">() {</text>
+        
+        <!-- 属性 -->
+        <text x="40" y="60" fill="#e2e8f0">this</text>
+        <text x="60" y="60" fill="#f472b6">.skills</text>
+        <text x="110" y="60" fill="#e2e8f0">= [</text>
+        
+        <!-- 技能列表 -->
+        <text x="60" y="90" fill="#34d399">'JavaScript'</text>
+        <text x="60" y="120" fill="#34d399">'React'</text>
+        <text x="60" y="150" fill="#34d399">'Node.js'</text>
+        
+        <!-- 闭合括号 -->
+        <text x="40" y="180" fill="#e2e8f0">];</text>
+        <text x="20" y="210" fill="#e2e8f0">}</text>
+        <text x="0" y="240" fill="#e2e8f0">}</text>
+    </g>
+    
+    <!-- 行号 -->
+    <g transform="translate(20, 80)" font-family="monospace" font-size="14" fill="#64748b">
+        <text x="0" y="0">1</text>
+        <text x="0" y="30">2</text>
+        <text x="0" y="60">3</text>
+        <text x="0" y="90">4</text>
+        <text x="0" y="120">5</text>
+        <text x="0" y="150">6</text>
+        <text x="0" y="180">7</text>
+        <text x="0" y="210">8</text>
+        <text x="0" y="240">9</text>
+    </g>
+</svg> 

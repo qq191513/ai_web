@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 自定义样式表 -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 自定义JavaScript -->
+    <script src="js/main.js" defer></script>
+</head>
+<body class="bg-secondary-50">
+    <!-- 导航栏：固定在顶部，包含logo和导航链接 -->
+    <nav class="navbar fixed top-0 left-0 right-0 z-50">
+        <div class="container-custom">
+            <div class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <a href="/" class="text-2xl font-bold text-gradient">
+                    <img src="assets/images/logo/logo.svg" alt="Logo" class="h-8">
+                </a>
+
+                <!-- 桌面端导航菜单 -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="about.html" class="text-secondary-600 hover:text-primary-600 transition-colors duration-200">About</a>
+                    <a href="projects.html" class="text-secondary-600 hover:text-primary-600 transition-colors duration-200">Projects</a>
+                    <a href="blog.html" class="text-secondary-600 hover:text-primary-600 transition-colors duration-200">Blog</a>
+                    <a href="contact.html" class="text-secondary-600 hover:text-primary-600 transition-colors duration-200">Contact</a>
+                    <a href="#" class="btn btn-primary">Resume</a>
+                </div>
+
+                <!-- 移动端菜单按钮 -->
+                <button class="menu-button md:hidden text-secondary-600 hover:text-primary-600 transition-colors duration-200">
+                    <i class="menu-icon fas fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- 移动端导航菜单 -->
+            <div class="mobile-menu md:hidden hidden">
+                <div class="py-4 space-y-4">
+                    <a href="about.html" class="block text-secondary-600 hover:text-primary-600 transition-colors duration-200">About</a>
+                    <a href="projects.html" class="block text-secondary-600 hover:text-primary-600 transition-colors duration-200">Projects</a>
+                    <a href="blog.html" class="block text-secondary-600 hover:text-primary-600 transition-colors duration-200">Blog</a>
+                    <a href="contact.html" class="block text-secondary-600 hover:text-primary-600 transition-colors duration-200">Contact</a>
+                    <a href="#" class="btn btn-primary w-full text-center">Resume</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero区域：全屏高度的主要展示区 -->
+    <section class="relative py-24 flex items-center bg-gradient-to-br from-primary-50 via-white to-secondary-50 overflow-hidden">
+        <!-- 背景装饰 -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        </div>
+
+        <div class="container-custom relative">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- 左侧：个人介绍和行动按钮 -->
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                        <span class="text-gradient">Hello, I am</span>
+                        <span class="block text-primary-600 mt-2">Developer</span>
+                    </h1>
+                    <p class="text-xl text-secondary-600 mb-8 max-w-lg mx-auto md:mx-0">
+                        A passionate full-stack developer crafting beautiful and functional web experiences with modern technologies.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="/projects.html" class="btn btn-primary btn-lg group">
+                            View Projects
+                            <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="/contact.html" class="btn btn-secondary btn-lg group">
+                            Contact Me
+                            <i class="fas fa-envelope ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 右侧：代码编辑器展示 -->
+                <div class="hidden md:block">
+                    <div class="code-editor bg-secondary-900 rounded-lg shadow-strong overflow-hidden">
+                        <!-- 编辑器标题栏 -->
+                        <div class="flex items-center px-4 py-2 bg-secondary-800">
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="text-secondary-400 text-sm ml-4">portfolio.js</div>
+                        </div>
+                        <!-- 代码内容 -->
+                        <div class="p-4 font-mono text-sm">
+                            <div class="typing-animation">
+                                <span class="text-primary-400">class</span> <span class="text-yellow-400">Developer</span> {
+                                <br>
+                                &nbsp;&nbsp;<span class="text-primary-400">constructor</span>() {
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-secondary-400">this</span>.<span class="text-blue-400">skills</span> = [
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-green-400">'JavaScript'</span>,
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-green-400">'React'</span>,
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-green-400">'Node.js'</span>
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;];
+                                <br>
+                                &nbsp;&nbsp;}
+                                <br>
+                                <br>
+                                &nbsp;&nbsp;<span class="text-primary-400">async</span> <span class="text-yellow-400">code</span>() {
+                                <br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-primary-400">return</span> <span class="text-green-400">'Clean & Efficient'</span>;
+                                <br>
+                                &nbsp;&nbsp;}
+                                <br>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术栈展示区：展示主要使用的技术 -->
+    <section class="py-20 bg-white">
+        <div class="container-custom">
+            <!-- 标题区域 -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-gradient mb-4">Tech Stack</h2>
+                <p class="text-secondary-600 text-lg">
+                    I specialize in modern web technologies and frameworks, focusing on creating efficient and scalable solutions.
+                </p>
+            </div>
+
+            <!-- 技术领域卡片网格 -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 前端开发 -->
+                <div class="card card-hover group">
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-200 transition-colors duration-200">
+                            <img src="assets/images/tech/react.svg" alt="React" class="tech-icon">
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 mb-3">Frontend</h3>
+                        <p class="text-secondary-600">
+                            Building responsive and interactive user interfaces with React, Vue.js, and modern CSS frameworks.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="tag tag-primary">React</span>
+                            <span class="tag tag-primary">Vue.js</span>
+                            <span class="tag tag-primary">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 后端开发 -->
+                <div class="card card-hover group">
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-secondary-200 transition-colors duration-200">
+                            <img src="assets/images/tech/nodejs.svg" alt="Node.js" class="tech-icon">
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 mb-3">Backend</h3>
+                        <p class="text-secondary-600">
+                            Developing robust server-side applications and APIs using Node.js, Python, and cloud services.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="tag tag-secondary">Node.js</span>
+                            <span class="tag tag-secondary">Python</span>
+                            <span class="tag tag-secondary">AWS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 数据库 -->
+                <div class="card card-hover group">
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors duration-200">
+                            <img src="assets/images/tech/python.svg" alt="Python" class="tech-icon">
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 mb-3">Database</h3>
+                        <p class="text-secondary-600">
+                            Working with both SQL and NoSQL databases to design efficient data storage solutions.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="tag tag-success">MongoDB</span>
+                            <span class="tag tag-success">PostgreSQL</span>
+                            <span class="tag tag-success">Redis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 开发工具 -->
+                <div class="card card-hover group">
+                    <div class="p-6">
+                        <div class="bg-accent-100 w-12 h-12  rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent-200 transition-colors duration-200">
+                            <img src="assets/images/tech/docker.svg" alt="Docker" class="tech-icon">
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 mb-3">DevOps</h3>
+                        <p class="text-secondary-600">
+                            Implementing CI/CD pipelines and containerization for efficient development workflows.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="tag tag-warning">Docker</span>
+                            <span class="tag tag-warning">Git</span>
+                            <span class="tag tag-warning">Jenkins</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 技术统计 -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl font-bold text-primary-600 mb-2">5+</div>
+                    <div class="text-secondary-600">Years Experience</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-primary-600 mb-2">50+</div>
+                    <div class="text-secondary-600">Projects Completed</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-primary-600 mb-2">30+</div>
+                    <div class="text-secondary-600">Happy Clients</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-primary-600 mb-2">10+</div>
+                    <div class="text-secondary-600">Technologies</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目展示区：展示精选项目 -->
+    <section class="py-20 bg-gray-50">
+        <div class="container-custom">
+            <!-- 标题区域 -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-gradient mb-4">Featured Projects</h2>
+                <p class="text-secondary-600 text-lg responsive-text">
+                    Explore some of my recent work and personal projects that showcase my skills and expertise.
+                </p>
+            </div>
+
+            <!-- 项目卡片网格 -->
+            <div class="grid-responsive">
+                <!-- 项目卡片 1 -->
+                <div class="card card-hover card-responsive group overflow-hidden">
+                    <div class="relative">
+                        <img src="images/placeholder.jpg" 
+                             data-src="images/projects/ecommerce.jpg" 
+                             alt="E-Commerce Platform" 
+                             loading="lazy"
+                             class="responsive-image w-full h-64 object-cover transition-opacity duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary-900 mb-3 group-hover:text-primary-600 transition-colors duration-200">
+                            E-Commerce Platform
+                        </h3>
+                        <p class="text-secondary-600 mb-4 responsive-text">
+                            A full-stack e-commerce solution with real-time inventory management and secure payment processing.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag tag-primary">React</span>
+                            <span class="tag tag-secondary">Node.js</span>
+                            <span class="tag tag-success">MongoDB</span>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-responsive">
+                            View Project
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 项目卡片 2 -->
+                <div class="card card-hover card-responsive group overflow-hidden">
+                    <div class="relative">
+                        <img src="images/placeholder.jpg" 
+                             data-src="images/projects/social-media.jpg" 
+                             alt="Social Media Dashboard" 
+                             loading="lazy"
+                             class="responsive-image w-full h-64 object-cover transition-opacity duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary-900 mb-3 group-hover:text-primary-600 transition-colors duration-200">
+                            Social Media Dashboard
+                        </h3>
+                        <p class="text-secondary-600 mb-4 responsive-text">
+                            A collaborative social media dashboard for managing multiple platforms.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag tag-primary">Vue.js</span>
+                            <span class="tag tag-secondary">Firebase</span>
+                            <span class="tag tag-warning">Tailwind</span>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-responsive">
+                            View Project
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 项目卡片 3 -->
+                <div class="card card-hover card-responsive group overflow-hidden">
+                    <div class="relative">
+                        <img src="images/placeholder.jpg" 
+                             data-src="images/projects/portfolio.jpg" 
+                             alt="Portfolio Website" 
+                             loading="lazy"
+                             class="responsive-image w-full h-64 object-cover transition-opacity duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary-900 mb-3 group-hover:text-primary-600 transition-colors duration-200">
+                            Portfolio Website
+                        </h3>
+                        <p class="text-secondary-600 mb-4 responsive-text">
+                            A responsive portfolio website showcasing my skills and projects.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag tag-primary">HTML</span>
+                            <span class="tag tag-primary">CSS</span>
+                            <span class="tag tag-primary">JavaScript</span>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-responsive">
+                            View Project
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 查看更多按钮 -->
+            <div class="text-center mt-12">
+                <a href="projects.html" class="btn btn-primary btn-responsive">
+                    View More Projects
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 博客文章区：展示最新博客文章 -->
+    <section class="py-20 bg-white">
+        <div class="container-custom">
+            <!-- 标题区域 -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-gradient mb-4">Latest Articles</h2>
+                <p class="text-secondary-600 text-lg">
+                    Insights, tutorials, and thoughts on web development, programming, and technology.
+                </p>
+            </div>
+
+            <!-- 博客文章网格 -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 文章卡片 1 -->
+                <div class="card card-hover group">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="tag tag-primary">Web Development</span>
+                            <span class="text-secondary-400 text-sm">5 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 mb-3 group-hover:text-primary-600 transition-colors duration-200">
+                            Building Modern Web Applications with React and TypeScript
+                        </h3>
+                        <p class="text-secondary-600 mb-4">
+                            Learn how to create scalable and maintainable web applications using React and TypeScript, with best practices and real-world examples.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <img src="assets/images/author/avatar.svg" alt="Author" class="w-10 h-10 rounded-full">
+                                <div>
+                                    <div class="text-sm font-medium text-secondary-900">John Doe</div>
+                                    <div class="text-xs text-secondary-500">Mar 15, 2024</div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-text btn-sm group-hover:text-primary-600">
+                                Read More
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 文章卡片 2 -->
+                <div class="card card-hover group">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="tag tag-secondary">DevOps</span>
+                            <span class="text-secondary-400 text-sm">8 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 mb-3 group-hover:text-primary-600 transition-colors duration-200">
+                            Implementing CI/CD Pipelines with GitHub Actions
+                        </h3>
+                        <p class="text-secondary-600 mb-4">
+                            A comprehensive guide to setting up automated deployment pipelines using GitHub Actions, including testing, building, and deployment stages.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <img src="assets/images/author/avatar.svg" alt="Author" class="w-10 h-10 rounded-full">
+                                <div>
+                                    <div class="text-sm font-medium text-secondary-900">John Doe</div>
+                                    <div class="text-xs text-secondary-500">Mar 12, 2024</div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-text btn-sm group-hover:text-primary-600">
+                                Read More
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 文章卡片 3 -->
+                <div class="card card-hover group">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="tag tag-success">Database</span>
+                            <span class="text-secondary-400 text-sm">6 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 mb-3 group-hover:text-primary-600 transition-colors duration-200">
+                            Optimizing Database Performance in Node.js Applications
+                        </h3>
+                        <p class="text-secondary-600 mb-4">
+                            Discover techniques and best practices for improving database performance in Node.js applications, from query optimization to caching strategies.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <img src="assets/images/author/avatar.svg" alt="Author" class="w-10 h-10 rounded-full">
+                                <div>
+                                    <div class="text-sm font-medium text-secondary-900">John Doe</div>
+                                    <div class="text-xs text-secondary-500">Mar 10, 2024</div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-text btn-sm group-hover:text-primary-600">
+                                Read More
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 文章卡片 4 -->
+                <div class="card card-hover group">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="tag tag-warning">UI/UX</span>
+                            <span class="text-secondary-400 text-sm">7 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 mb-3 group-hover:text-primary-600 transition-colors duration-200">
+                            Creating Accessible Web Interfaces with Tailwind CSS
+                        </h3>
+                        <p class="text-secondary-600 mb-4">
+                            Learn how to build beautiful and accessible user interfaces using Tailwind CSS, with a focus on responsive design and accessibility standards.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <img src="assets/images/author/avatar.svg" alt="Author" class="w-10 h-10 rounded-full">
+                                <div>
+                                    <div class="text-sm font-medium text-secondary-900">John Doe</div>
+                                    <div class="text-xs text-secondary-500">Mar 8, 2024</div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-text btn-sm group-hover:text-primary-600">
+                                Read More
+                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-200"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 浏览所有文章按钮 -->
+            <div class="text-center mt-12">
+                <a href="blog.html" class="btn btn-primary">
+                    Browse All Articles
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚区域：包含联系信息、快速链接和社交媒体链接 -->
+    <footer class="bg-secondary-900 text-secondary-100 py-16">
+        <div class="container-custom">
+            <!-- 页脚主要内容 -->
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <!-- 联系信息 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-white">Contact Me</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-primary-400"></i>
+                            <a href="mailto:contact@example.com" class="text-secondary-200 hover:text-white transition-colors duration-200">
+                                contact@example.com
+                            </a>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-phone text-primary-400"></i>
+                            <a href="tel:+1234567890" class="text-secondary-200 hover:text-white transition-colors duration-200">
+                                +1 (234) 567-890
+                            </a>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-primary-400"></i>
+                            <span class="text-secondary-200">
+                                San Francisco, CA
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 快速链接 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-white">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="about.html" class="text-secondary-200 hover:text-white transition-colors duration-200">
+                                About Me
+                            </a>
+                        </li>
+                        <li>
+                            <a href="projects.html" class="text-secondary-200 hover:text-white transition-colors duration-200">
+                                Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a href="blog.html" class="text-secondary-200 hover:text-white transition-colors duration-200">
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html" class="text-secondary-200 hover:text-white transition-colors duration-200">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 社交媒体链接 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 text-white">Follow Me</h3>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-secondary-800 flex items-center justify-center text-white hover:bg-primary-600 transition-colors duration-200">
+                            <img src="assets/images/social/github.svg" alt="GitHub" class="social-icon">
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-secondary-800 flex items-center justify-center text-white hover:bg-primary-600 transition-colors duration-200">
+                            <img src="assets/images/social/linkedin.svg" alt="LinkedIn" class="social-icon">
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-secondary-800 flex items-center justify-center text-white hover:bg-primary-600 transition-colors duration-200">
+                            <img src="assets/images/social/twitter.svg" alt="Twitter" class="social-icon">
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-secondary-800 flex items-center justify-center text-white hover:bg-primary-600 transition-colors duration-200">
+                            <img src="assets/images/social/instagram.svg" alt="Instagram" class="social-icon">
+                        </a>
+                    </div>
+                    <!-- 订阅表单 -->
+                    <div class="mt-6">
+                        <h4 class="text-sm font-semibold mb-3 text-white">Subscribe to Newsletter</h4>
+                        <form class="flex gap-2">
+                            <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded-lg bg-secondary-800 text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            <button type="submit" class="btn btn-primary">
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分隔线 -->
+            <div class="border-t border-secondary-800 pt-8">
+                <!-- 版权信息 -->
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-secondary-300 text-sm">
+                        © 2024 Your Name. All rights reserved.
+                    </p>
+                    <!-- 页脚链接 -->
+                    <div class="flex gap-6">
+                        <a href="#" class="text-secondary-300 hover:text-white text-sm transition-colors duration-200">
+                            Privacy Policy
+                        </a>
+                        <a href="#" class="text-secondary-300 hover:text-white text-sm transition-colors duration-200">
+                            Terms of Service
+                        </a>
+                        <a href="#" class="text-secondary-300 hover:text-white text-sm transition-colors duration-200">
+                            Cookie Policy
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

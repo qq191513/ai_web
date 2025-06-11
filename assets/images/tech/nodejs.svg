@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+    <!-- Node.js Logo -->
+    <g transform="translate(20, 20)">
+        <!-- 背景圆 -->
+        <circle cx="0" cy="0" r="18" fill="#339933"/>
+        
+        <!-- 文字 "js" -->
+        <text x="-8" y="6" font-family="Arial" font-size="16" font-weight="bold" fill="white">js</text>
+        
+        <!-- 装饰线 -->
+        <path d="M-12,-8 L12,-8 M-12,8 L12,8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    </g>
+</svg> 

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="projects.html" class="text-blue-600 hover:text-blue-800 transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to Projects
+                </a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="projects.html" class="text-gray-700 hover:text-blue-600">Projects</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-600">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-600">Contact</a>
+                </div>
+                <button class="md:hidden text-gray-700" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Overview Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-b from-[#EEF2FF] to-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Project Name</h1>
+                <div class="flex flex-wrap gap-4 items-center mb-6">
+                    <span class="text-gray-600">2023</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Completed</span>
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Web Application</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Left Column - Main Content -->
+            <div class="lg:w-2/3">
+                <!-- Project Overview -->
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#111827] mb-4">Project Overview</h2>
+                    <div class="prose max-w-none text-[#4B5563]">
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <h3 class="text-xl font-semibold mt-6 mb-3">Key Features</h3>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Feature 1 description</li>
+                            <li>Feature 2 description</li>
+                            <li>Feature 3 description</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Technical Highlights -->
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#111827] mb-6">Technical Highlights</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                            <i class="fas fa-code text-3xl text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2">Technology Stack</h3>
+                            <p class="text-gray-600">Detailed description of the technology stack used in the project.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                            <i class="fas fa-sitemap text-3xl text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2">Architecture</h3>
+                            <p class="text-gray-600">Overview of the system architecture and design decisions.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Development Timeline -->
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#111827] mb-6">Development Timeline</h2>
+                    <div class="relative">
+                        <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+                        <div class="space-y-8">
+                            <div class="relative pl-12">
+                                <div class="absolute left-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white">1</div>
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h3 class="font-semibold mb-2">Planning Phase</h3>
+                                    <p class="text-gray-600">Initial project planning and requirements gathering.</p>
+                                </div>
+                            </div>
+                            <div class="relative pl-12">
+                                <div class="absolute left-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white">2</div>
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h3 class="font-semibold mb-2">Development Phase</h3>
+                                    <p class="text-gray-600">Core development and implementation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Project Screenshots -->
+                <section class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#111827] mb-6">Project Screenshots</h2>
+                    <div class="relative">
+                        <div class="aspect-w-16 aspect-h-9 mb-4">
+                            <img src="images/placeholder.jpg" 
+                                 data-src="images/projects/ecommerce-detail.jpg"
+                                 alt="E-commerce Platform Screenshot"
+                                 loading="lazy"
+                                 class="w-full h-64 object-cover rounded-lg transition-opacity duration-300">
+                        </div>
+                        <div class="grid grid-cols-4 gap-4">
+                            <img src="images/placeholder.jpg" 
+                                 data-src="images/projects/ecommerce-mobile.jpg"
+                                 alt="E-commerce Platform Mobile View"
+                                 loading="lazy"
+                                 class="w-full h-64 object-cover rounded-lg transition-opacity duration-300">
+                            <img src="images/placeholder.jpg" 
+                                 data-src="images/projects/ecommerce-admin.jpg"
+                                 alt="E-commerce Platform Admin Dashboard"
+                                 loading="lazy"
+                                 class="w-full h-64 object-cover rounded-lg transition-opacity duration-300">
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column - Project Info Card -->
+            <div class="lg:w-1/3">
+                <div class="sticky top-24 bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6">Project Information</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-700">Technology Stack</h4>
+                            <p class="text-gray-600">React, Node.js, MongoDB</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700">My Role</h4>
+                            <p class="text-gray-600">Full Stack Developer</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700">Development Period</h4>
+                            <p class="text-gray-600">3 months</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-700">Team Size</h4>
+                            <p class="text-gray-600">5 members</p>
+                        </div>
+                        <div class="pt-4 space-y-3">
+                            <a href="#" class="block w-full bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                <i class="fab fa-github mr-2"></i>View Source Code
+                            </a>
+                            <a href="#" class="block w-full bg-white border border-blue-600 text-blue-600 text-center py-2 rounded-lg hover:bg-blue-50 transition-colors">
+                                <i class="fas fa-external-link-alt mr-2"></i>Visit Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-50 hidden">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex justify-end mb-8">
+                <button id="close-menu" class="text-gray-700">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-4">
+                <a href="index.html" class="text-xl text-gray-700 hover:text-blue-600">Home</a>
+                <a href="projects.html" class="text-xl text-gray-700 hover:text-blue-600">Projects</a>
+                <a href="about.html" class="text-xl text-gray-700 hover:text-blue-600">About</a>
+                <a href="contact.html" class="text-xl text-gray-700 hover:text-blue-600">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Navigation transparency on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/90', 'backdrop-blur-sm');
+            } else {
+                nav.classList.remove('bg-white/90', 'backdrop-blur-sm');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Image gallery
+        const thumbnails = document.querySelectorAll('.grid img');
+        const mainImage = document.querySelector('.aspect-w-16 img');
+
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                mainImage.src = thumb.src;
+            });
+        });
+    </script>
+</body>
+</html> 
