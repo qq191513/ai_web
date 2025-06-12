@@ -76,11 +76,11 @@
                         A passionate full-stack developer crafting beautiful and functional web experiences with modern technologies.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                        <a href="/projects.html" class="btn btn-primary btn-lg group">
+                        <a href="projects.html" class="btn btn-primary btn-lg group">
                             View Projects
                             <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
                         </a>
-                        <a href="/contact.html" class="btn btn-secondary btn-lg group">
+                        <a href="contact.html" class="btn btn-secondary btn-lg group">
                             Contact Me
                             <i class="fas fa-envelope ml-2 transform group-hover:translate-x-1 transition-transform"></i>
                         </a>
@@ -101,7 +101,7 @@
                         </div>
                         <!-- 代码内容 -->
                         <div class="p-4 font-mono text-sm">
-                            <div class="typing-animation">
+                            <div class="typing-animation" id="code-animation">
                                 <span class="text-primary-400">class</span> <span class="text-yellow-400">Developer</span> {
                                 <br>
                                 &nbsp;&nbsp;<span class="text-primary-400">constructor</span>() {
@@ -603,5 +603,40 @@
             </div>
         </div>
     </footer>
+    <style>
+        /* 添加打字机动画相关样式 */
+        .typing-animation {
+            opacity: 0;
+            animation: fadeIn 3s ease-in forwards;
+        }
+
+        .typing-animation span {
+            display: inline-block;
+            opacity: 0;
+            animation: typing 3s ease-in forwards;
+        }
+
+        @keyframes typing {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+    <script>
+        // 添加打字机动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const codeAnimation = document.getElementById('code-animation');
+            const spans = codeAnimation.getElementsByTagName('span');
+            
+            // 为每个span添加延迟动画
+            Array.from(spans).forEach((span, index) => {
+                span.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
 </body>
 </html> 

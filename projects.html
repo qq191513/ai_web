@@ -11,15 +11,22 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <style>
+        /* 添加阴影样式 */
+        .shadow-strong {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+        }
+        
         .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            will-change: transform;
+            transition: all 0.3s ease;
+            will-change: transform, box-shadow;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
         }
         .project-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
         }
         .project-image {
-            transition: transform 0.3s ease;
+            transition: transform 0.5s ease;
             will-change: transform;
         }
         .project-card:hover .project-image {
@@ -250,13 +257,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Project Card 1 -->
-                <article class="project-card bg-white rounded-lg shadow-sm hover:shadow-md" data-category="web">
+                <article class="project-card bg-white rounded-lg shadow-strong" data-category="web" style="box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);">
                     <div class="overflow-hidden rounded-t-lg">
                         <img src="images/placeholder.jpg" 
                              data-src="images/projects/ecommerce.jpg"
                              alt="E-commerce Platform Project"
                              loading="lazy"
-                             class="w-full h-48 object-cover rounded-t-lg transition-opacity duration-300">
+                             class="project-image w-full h-48 object-cover rounded-t-lg transition-opacity duration-300">
                     </div>
                     <div class="p-6">
                         <h2 class="text-lg font-semibold text-gray-900 mb-2">E-commerce Platform</h2>
@@ -276,13 +283,13 @@
                 </article>
 
                 <!-- Project Card 2 -->
-                <article class="project-card bg-white rounded-lg shadow-sm hover:shadow-md" data-category="mobile">
+                <article class="project-card bg-white rounded-lg shadow-strong" data-category="mobile" style="box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);">
                     <div class="overflow-hidden rounded-t-lg">
                         <img src="images/placeholder.jpg" 
                              data-src="images/projects/social-media.jpg"
                              alt="Social Media Dashboard Project"
                              loading="lazy"
-                             class="w-full h-48 object-cover rounded-t-lg transition-opacity duration-300">
+                             class="project-image w-full h-48 object-cover rounded-t-lg transition-opacity duration-300">
                     </div>
                     <div class="p-6">
                         <h2 class="text-lg font-semibold text-gray-900 mb-2">Social Media Dashboard</h2>
@@ -302,13 +309,13 @@
                 </article>
 
                 <!-- Project Card 3 -->
-                <article class="project-card bg-white rounded-lg shadow-sm hover:shadow-md" data-category="design">
+                <article class="project-card bg-white rounded-lg shadow-strong" data-category="design" style="box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);">
                     <div class="overflow-hidden rounded-t-lg">
                         <img src="images/placeholder.jpg" 
                              data-src="images/projects/portfolio.jpg"
                              alt="Portfolio Website Project"
                              loading="lazy"
-                             class="w-full h-48 object-cover rounded-t-lg transition-opacity duration-300">
+                             class="project-image w-full h-48 object-cover rounded-t-lg transition-opacity duration-300">
                     </div>
                     <div class="p-6">
                         <h2 class="text-lg font-semibold text-gray-900 mb-2">Portfolio Website</h2>
